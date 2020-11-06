@@ -1,0 +1,33 @@
+﻿@{ var rutinas = (RutinaUsuario)Model; }
+
+<body>
+    <header>
+        <div class="container">
+            <h1 class="h-100 badge badge-dark">Usuario: @User.Claims.FirstOrDefault().Value</h1>
+        </div>
+    </header>
+</body>
+
+<h1>Crear Rutina</h1>
+
+<form action="/Ejercicio/CrearRutina" class="col-12" method="post">
+
+    <label>Nombre</label>
+    <div class="form-group" id="user-group">
+        <input type="text" class="form-control" placeholder="Nombre de Rutina" name="Nombre" />
+
+    </div>
+
+    <label>Tipo</label>
+    <div class="form-group" id="contrasena-group">
+        <select name="Tipo" class="form-control">
+            <option value="">-- Selecciona una opcion --</option>
+            @foreach (var item in ViewBag.Tipo)
+            {
+                <option value="@item">@item</option>
+            }
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-light">  Crear </button>
+</form>

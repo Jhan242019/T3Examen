@@ -1,0 +1,33 @@
+﻿@{ List<RutinaUsuario> rutina = ((List<RutinaUsuario>)Model); }
+
+<body>
+    <header>
+        <div class="container">
+            <h1 class="h-100 badge badge-info">Usuario: @User.Claims.FirstOrDefault().Value</h1>
+        </div>
+    </header>
+</body>
+
+<h1>Lista de Rutinas</h1>
+
+<a href="/Ejercicio/CrearRutina" class="badge badge-dark">Crear Rutina</a>
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th>Rutina</th>
+            <th>Tipo</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in rutina)
+        {
+            <tr>
+                <td>@item.Nombre</td>
+                <td>@item.Tipo</td>
+                <td><a href="/Ejercicio/index?RutinaId=@item.Id">Ejercicios</a></td>
+            </tr>
+         }
+    </tbody>
+</table>
